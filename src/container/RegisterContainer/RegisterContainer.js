@@ -1,5 +1,5 @@
 import React from 'react'
-import Register from '../../components/Register/Register'
+import Register from '../../features/Auth/Register/Register'
 import firebase, { facebookProvider, googleProvider } from '../../firebase'
 const RegisterContainer = () => {
   const handleRegisterGoogle = async (e) => {

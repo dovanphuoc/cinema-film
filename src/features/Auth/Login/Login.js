@@ -1,9 +1,9 @@
 import { css, cx } from '@emotion/css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import image from '../../assets/images/image.svg'
-import logo1 from '../../assets/images/logo1.png'
-import ROUTES from '../../routers'
+import image from '../../../assets/images/image.svg'
+import logo1 from '../../../assets/images/logo1.png'
+import ROUTES from '../../../routers'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiOutlineTwitter, AiOutlineGoogle } from 'react-icons/ai'
 
@@ -145,15 +145,12 @@ const infoRow = css`
   font-size: 1.4rem;
 `
 
-const signIn = css`
+const register = css`
   color: #3f51b5;
   margin-left: 4px;
 `
-const defaultFn = () => {}
-const Register = ({
-  onRegisterGoogle = defaultFn,
-  onRegisterFacebook = defaultFn,
-}) => {
+
+const Login = () => {
   return (
     <div className={authPage}>
       <div className={pageContent}>
@@ -176,12 +173,6 @@ const Register = ({
                 </label>
                 <input type="password" id="password" className={input} />
               </div>
-              <div className={formInput}>
-                <label htmlFor="confirmPassword" className={formLabel}>
-                  Confirm Password
-                </label>
-                <input type="password" id="confirmPassword" className={input} />
-              </div>
             </div>
             <div className={checkBox}>
               <input type="checkbox" className={checkBoxInput} />
@@ -191,16 +182,10 @@ const Register = ({
               Continue
             </button>
             <div className={socialList}>
-              <button
-                className={cx(buttonIcon, bgPrimary)}
-                onClick={onRegisterFacebook}
-              >
+              <button className={cx(buttonIcon, bgPrimary)}>
                 <FaFacebookF className={iconSocial} />
               </button>
-              <button
-                className={cx(buttonIcon, bgDanger)}
-                onClick={onRegisterGoogle}
-              >
+              <button className={cx(buttonIcon, bgDanger)}>
                 <AiOutlineGoogle className={iconSocial} />
               </button>
               <button className={cx(buttonIcon, bgBlue)}>
@@ -210,8 +195,8 @@ const Register = ({
           </form>
           <div className={infoRow}>
             <span>Don't have an account?</span>
-            <Link to={ROUTES[6].path} className={signIn}>
-              Sign in
+            <Link to={ROUTES[5].path} className={register}>
+              Sign up
             </Link>
           </div>
         </div>
@@ -221,4 +206,4 @@ const Register = ({
   )
 }
 
-export default Register
+export default Login

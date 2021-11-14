@@ -1,9 +1,9 @@
 import { css, cx } from '@emotion/css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import image from '../../assets/images/image.svg'
-import logo1 from '../../assets/images/logo1.png'
-import ROUTES from '../../routers'
+import image from '../../../assets/images/image.svg'
+import logo1 from '../../../assets/images/logo1.png'
+import ROUTES from '../../../routers'
 import { FaFacebookF } from 'react-icons/fa'
 import { AiOutlineTwitter, AiOutlineGoogle } from 'react-icons/ai'
 
@@ -145,12 +145,15 @@ const infoRow = css`
   font-size: 1.4rem;
 `
 
-const register = css`
+const signIn = css`
   color: #3f51b5;
   margin-left: 4px;
 `
-
-const Login = () => {
+const defaultFn = () => {}
+const Register = ({
+  onRegisterGoogle = defaultFn,
+  onRegisterFacebook = defaultFn,
+}) => {
   return (
     <div className={authPage}>
       <div className={pageContent}>
@@ -173,6 +176,12 @@ const Login = () => {
                 </label>
                 <input type="password" id="password" className={input} />
               </div>
+              <div className={formInput}>
+                <label htmlFor="confirmPassword" className={formLabel}>
+                  Confirm Password
+                </label>
+                <input type="password" id="confirmPassword" className={input} />
+              </div>
             </div>
             <div className={checkBox}>
               <input type="checkbox" className={checkBoxInput} />
@@ -182,10 +191,16 @@ const Login = () => {
               Continue
             </button>
             <div className={socialList}>
-              <button className={cx(buttonIcon, bgPrimary)}>
+              <button
+                className={cx(buttonIcon, bgPrimary)}
+                onClick={onRegisterFacebook}
+              >
                 <FaFacebookF className={iconSocial} />
               </button>
-              <button className={cx(buttonIcon, bgDanger)}>
+              <button
+                className={cx(buttonIcon, bgDanger)}
+                onClick={onRegisterGoogle}
+              >
                 <AiOutlineGoogle className={iconSocial} />
               </button>
               <button className={cx(buttonIcon, bgBlue)}>
@@ -195,8 +210,8 @@ const Login = () => {
           </form>
           <div className={infoRow}>
             <span>Don't have an account?</span>
-            <Link to={ROUTES[5].path} className={register}>
-              Sign up
+            <Link to={ROUTES[6].path} className={signIn}>
+              Sign in
             </Link>
           </div>
         </div>
@@ -206,4 +221,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import SkeletonLoading from '../../components/SkeletonLoading/SkeletonLoading'
-import Home from '../../components/Home/Home'
+import Home from '../../features/Home/Home'
 import NavBar from '../../components/NavBar/NavBar'
-import Slider from '../../components/Slider/Slider'
+import Slider from '../../features/Slider/Slider'
 import { db } from '../../firebase'
+import MoviesContain from '../MoviesContain/MoviesContain'
 
 const HomeContainer = () => {
   const [listImages, setListsImages] = useState()
@@ -29,14 +30,17 @@ const HomeContainer = () => {
   }, [])
   return (
     <>
-      {loading ? (
-        <SkeletonLoading />
-      ) : (
-        <Home>
-          <NavBar />
-          <Slider data={listImages} />
-        </Home>
-      )}
+      <Home>
+        {loading ? (
+          <SkeletonLoading />
+        ) : (
+          <>
+            <NavBar />
+            <Slider data={listImages} />
+            <MoviesContain />
+          </>
+        )}
+      </Home>
     </>
   )
 }

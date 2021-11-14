@@ -1,5 +1,9 @@
+import ActionFilmContainer from '../container/ActionFilmContainer/ActionFilmContainer'
+import ComedyFilmContainer from '../container/ComedyFilmContainer/ComedyFilmContainer'
 import HomeContainer from '../container/HomeContainer/HomeContainer'
+import ListMoviesDetailContainer from '../container/ListMoviesDetailContainer/ListMoviesDetailContainer'
 import LoginContainer from '../container/LoginContainer/LoginContainer'
+import MovieDetailContainer from '../container/MovieDetailContainer/MovieDetailContainer'
 import MoviesContainer from '../container/MoviesContainer/MoviesContainer'
 import News from '../container/NewsContainer/NewsContainer'
 import NewsDetailContainer from '../container/NewsDetailContainer/NewsDetailContainer'
@@ -49,6 +53,22 @@ const ROUTES = [
   {
     path: '/login',
     component: LoginContainer,
+  },
+  {
+    path: '/titles/:id/:name',
+    component: MovieDetailContainer,
+  },
+  {
+    path: '/genre=action',
+    component: ActionFilmContainer,
+  },
+  {
+    path: '/genre=comedy',
+    component: ComedyFilmContainer,
+  },
+  {
+    path: '/lists/:id',
+    component: ListMoviesDetailContainer,
   },
 ]
 export default ROUTES

@@ -40,3 +40,14 @@ button {
 label {
   display: block;
 }
+
+h2 {
+  font-size: 3rem;
+  color: #000000de;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

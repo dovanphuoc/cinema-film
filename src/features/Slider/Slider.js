@@ -126,7 +126,7 @@ const NextArrow = (props) => {
   const { onClick } = props
   return (
     <button onClick={onClick} className={nextArrow}>
-<GrLinkPrevious className={icon} />
+      <GrLinkPrevious className={icon} />
     </button>
   )
 }
@@ -135,7 +135,7 @@ const PrevArrow = (props) => {
   const { onClick } = props
   return (
     <button className={prevArrow} onClick={onClick}>
-<GrLinkNext className={icon} />
+      <GrLinkNext className={icon} />
     </button>
   )
 }
