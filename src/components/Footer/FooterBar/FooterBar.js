@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { css } from '@emotion/css'
 import Container from '../../Container/Container'
 import { MdOutlineDarkMode, MdLanguage } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeTheme } from '../../../redux/slices/slices'
 
 const footerBar = css`
   background: #f44336;
@@ -37,15 +39,23 @@ const icon = css`
   font-size: 2rem;
 `
 const FooterBar = () => {
+  const theme = useSelector((state) => state.theme)
+  const [themeLight, setThemeLight] = useState(theme)
+
+  const dispatch = useDispatch()
+  const handleToggleTheme = () => {
+    themeLight === 'light' ? setThemeLight('dark') : setThemeLight('light')
+    dispatch(changeTheme(themeLight))
+  }
   return (
     <div className={footerBar}>
       <Container>
         <div className={footerWrap}>
           <span className={text}>Copyright © 2021 MTDb</span>
           <div className={btnWrap}>
-            <button className={btn}>
+            <button className={btn} onClick={handleToggleTheme}>
               <MdOutlineDarkMode className={icon} />
-              Dark Mode
+              {themeLight === 'light' ? 'Dark Mode' : 'Light Mode'}
             </button>
             <button className={btn}>
               <MdLanguage className={icon} />
