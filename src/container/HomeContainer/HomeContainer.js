@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Slider from '../../features/Slider/Slider'
 import { db } from '../../firebase'
 import MoviesContain from '../MoviesContain/MoviesContain'
+import FooterContainer from '../FooterContainer/FooterContainer'
 
 const HomeContainer = () => {
   const [listImages, setListsImages] = useState()
@@ -38,6 +39,7 @@ const HomeContainer = () => {
             <NavBar />
             <Slider data={listImages} />
             <MoviesContain />
+            <FooterContainer />
           </>
         )}
       </Home>
