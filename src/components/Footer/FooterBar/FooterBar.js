@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeTheme } from '../../../redux/slices/slices'
 
 const footerBar = css`
-  background: #f44336;
-  color: #fff;
   padding: 25px 50px;
 `
 
@@ -24,7 +22,6 @@ const btn = css`
   display: flex;
   justify-content: center;
   flex-direction: row;
-  color: #fff;
   font-size: 1.6rem;
   align-items: center;
   margin-left: 10px;
@@ -35,7 +32,6 @@ const btnWrap = css`
 `
 
 const icon = css`
-  color: #fff;
   font-size: 2rem;
 `
 const FooterBar = () => {
@@ -48,18 +44,41 @@ const FooterBar = () => {
     dispatch(changeTheme(themeLight))
   }
   return (
-    <div className={footerBar}>
+    <div
+      className={`${footerBar} ${themeLight === 'light' ? 'dark' : 'light'}`}
+    >
       <Container>
         <div className={footerWrap}>
-          <span className={text}>Copyright © 2021 MTDb</span>
+          <span
+            className={`${text} ${themeLight === 'light' ? 'dark' : 'light'}`}
+          >
+            Copyright © 2021 MTDb
+          </span>
           <div className={btnWrap}>
-            <button className={btn} onClick={handleToggleTheme}>
-              <MdOutlineDarkMode className={icon} />
-              {themeLight === 'light' ? 'Dark Mode' : 'Light Mode'}
+            <button
+              className={`${btn} ${themeLight === 'light' ? 'dark' : 'light'}`}
+              onClick={handleToggleTheme}
+            >
+              <MdOutlineDarkMode
+                className={`${icon} ${
+                  themeLight === 'light' ? 'dark' : 'light'
+                }`}
+              />
+              <span className={themeLight === 'light' ? 'dark' : 'light'}>
+                {themeLight === 'light' ? 'Dark Mode' : 'Light Mode'}
+              </span>
             </button>
-            <button className={btn}>
-              <MdLanguage className={icon} />
-              English
+            <button
+              className={`${btn} ${themeLight === 'light' ? 'dark' : 'light'}`}
+            >
+              <MdLanguage
+                className={`${icon} ${
+                  themeLight === 'light' ? 'dark' : 'light'
+                }`}
+              />
+              <span className={themeLight === 'light' ? 'dark' : 'light'}>
+                English
+              </span>
             </button>
           </div>
         </div>

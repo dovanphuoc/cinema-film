@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from '@emotion/css'
 import { Link } from 'react-router-dom'
 import ROUTES from '../../../routers'
+import { useSelector } from 'react-redux'
 
 const gridItem = css`
   padding-top: 150%;
@@ -33,7 +34,6 @@ const title = css`
   white-space: nowrap;
   font-weight: 700;
   font-size: 1.8rem;
-  color: rgba(0, 0, 0, 0.87);
   width: 95%;
 `
 
@@ -43,6 +43,7 @@ const image = css`
   object-fit: cover;
 `
 const MovieItem = ({ movies }) => {
+  const theme = useSelector((state) => state.theme)
   return (
     <>
       {movies &&
@@ -55,7 +56,10 @@ const MovieItem = ({ movies }) => {
                 </Link>
               </div>
               <div className={gridLabel}>
-                <Link to={ROUTES[7].path} className={title}>
+                <Link
+                  to={ROUTES[7].path}
+                  className={`${title} ${theme === 'light' ? 'dark' : 'light'}`}
+                >
                   {movie.name}
                 </Link>
               </div>
