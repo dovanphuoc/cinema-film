@@ -45,38 +45,50 @@ const FooterBar = () => {
   }
   return (
     <div
-      className={`${footerBar} ${themeLight === 'light' ? 'dark' : 'light'}`}
+      className={`${footerBar} ${
+        themeLight === 'light' ? 'themeDark' : 'themeLight'
+      }`}
     >
       <Container>
         <div className={footerWrap}>
           <span
-            className={`${text} ${themeLight === 'light' ? 'dark' : 'light'}`}
+            className={`${text} ${
+              themeLight === 'light' ? 'themeDark' : 'themeLight'
+            }`}
           >
             Copyright © 2021 MTDb
           </span>
           <div className={btnWrap}>
             <button
-              className={`${btn} ${themeLight === 'light' ? 'dark' : 'light'}`}
+              className={`${btn} ${
+                themeLight === 'light' ? 'themeDark' : 'themeLight'
+              }`}
               onClick={handleToggleTheme}
             >
               <MdOutlineDarkMode
                 className={`${icon} ${
-                  themeLight === 'light' ? 'dark' : 'light'
+                  themeLight === 'light' ? 'themeDark' : 'themeLight'
                 }`}
               />
-              <span className={themeLight === 'light' ? 'dark' : 'light'}>
+              <span
+                className={themeLight === 'light' ? 'themeDark' : 'themeLight'}
+              >
                 {themeLight === 'light' ? 'Dark Mode' : 'Light Mode'}
               </span>
             </button>
             <button
-              className={`${btn} ${themeLight === 'light' ? 'dark' : 'light'}`}
+              className={`${btn} ${
+                themeLight === 'light' ? 'themeDark' : 'themeLight'
+              }`}
             >
               <MdLanguage
                 className={`${icon} ${
-                  themeLight === 'light' ? 'dark' : 'light'
+                  themeLight === 'light' ? 'themeDark' : 'themeLight'
                 }`}
               />
-              <span className={themeLight === 'light' ? 'dark' : 'light'}>
+              <span
+                className={themeLight === 'light' ? 'themeDark' : 'themeLight'}
+              >
                 English
               </span>
             </button>

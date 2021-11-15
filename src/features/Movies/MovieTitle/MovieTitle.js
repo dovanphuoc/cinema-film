@@ -19,15 +19,23 @@ const MovieTitle = ({ movies }) => {
   const theme = useSelector((state) => state.theme)
   return (
     <>
-      <h2 className={`${nameTitle} ${theme === 'light' ? 'dark' : 'light'}`}>
+      <h2
+        className={`${nameTitle} ${
+          theme === 'light' ? 'themeDark' : 'themeLight'
+        }`}
+      >
         <Link
           to={ROUTES[10].path}
-          className={`${title} ${theme === 'light' ? 'dark' : 'light'}`}
+          className={`${title} ${
+            theme === 'light' ? 'themeDark' : 'themeLight'
+          }`}
         >
           {movies.name}
         </Link>
       </h2>
-      <p className={`${desc} ${theme === 'light' ? 'dark' : 'light'}`}>
+      <p
+        className={`${desc} ${theme === 'light' ? 'themeDark' : 'themeLight'}`}
+      >
         {movies.description}
       </p>
     </>

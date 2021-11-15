@@ -58,7 +58,9 @@ const MovieItem = ({ movies }) => {
               <div className={gridLabel}>
                 <Link
                   to={ROUTES[7].path}
-                  className={`${title} ${theme === 'light' ? 'dark' : 'light'}`}
+                  className={`${title} ${
+                    theme === 'light' ? 'themeDark' : 'themeLight'
+                  }`}
                 >
                   {movie.name}
                 </Link>
