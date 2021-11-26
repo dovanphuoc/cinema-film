@@ -1,4 +1,5 @@
 {
+  "homepage": "https://dovanphuoc.github.io/cinema-film",
   "config-overrides-path": "node_modules/react-app-rewired/config-overrides.js",
   "name": "movie-app",
   "version": "0.1.0",

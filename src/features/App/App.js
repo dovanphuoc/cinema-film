@@ -10,7 +10,7 @@ function App() {
   const theme = useSelector((state) => state.theme)
   return (
     <div className={theme === 'light' ? 'dark' : 'light'}>
-      <Router>
+      <Router basename="/cinema-film">
         <Switch>
           {ROUTES.map((route, index) => (
             <MakeRouteWithSubRoutes key={index} {...route} />
