@@ -29,6 +29,11 @@ const HomeContainer = () => {
       clearTimeout(timeOut)
     }
   }, [])
+
+  const handleLogout = () => {
+    window.location.href = '/login'
+  }
+
   return (
     <>
       <Home>
@@ -36,7 +41,7 @@ const HomeContainer = () => {
           <SkeletonLoading />
         ) : (
           <>
-            <NavBar />
+            <NavBar onLogout={handleLogout} />
             <Slider data={listImages} />
             <MoviesContain />
             <FooterContainer />

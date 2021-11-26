@@ -24,14 +24,6 @@ const logo = css`
   margin: 0 auto 40px;
 `
 
-const customMenuContainer = css`
-  text-align: center;
-  padding: 42px 0 32px;
-  flex-shrink: 0;
-  margin-top: auto;
-  color: rgba(0, 0, 0, 0.54);
-`
-
 const authPanel = css`
   position: relative;
   width: 90%;
@@ -72,28 +64,6 @@ const input = css`
   border: 1px solid rgba(0, 0, 0, 0.12);
   width: 100%;
   border-radius: 4px;
-`
-
-const checkBox = css`
-  display: flex;
-  align-items: center;
-  text-align: left;
-  margin-top: 32px;
-  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
-    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-`
-
-const checkBoxInput = css`
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-`
-
-const checkBoxLabel = css`
-  font-size: 1.4rem;
-  margin-left: 8px;
 `
 
 const buttonPrimary = css`
@@ -149,10 +119,26 @@ const signIn = css`
   color: #3f51b5;
   margin-left: 4px;
 `
+
+const errorMessage = css`
+  color: red;
+  margin-top: 6px;
+  font-size: 1.4rem;
+  display: block;
+`
 const defaultFn = () => {}
 const Register = ({
   onRegisterGoogle = defaultFn,
   onRegisterFacebook = defaultFn,
+  onChangEmail = defaultFn,
+  onChangePassword = defaultFn,
+  onSignUp = defaultFn,
+  onChangePasswordConfirm = defaultFn,
+  errorEmail = '',
+  errorPassword = '',
+  passwordConfirm = '',
+  email = '',
+  password = '',
 }) => {
   return (
     <div className={authPage}>
@@ -161,34 +147,51 @@ const Register = ({
           <img src={logo1} alt="logo" />
         </Link>
         <div className={authPanel}>
-          <form>
+          <form onSubmit={onSignUp}>
             <div className={header}>Sign in to your account</div>
             <div className="form-group">
               <div className={formInput}>
                 <label htmlFor="email" className={formLabel}>
                   Email
                 </label>
-                <input type="email" id="email" className={input} />
+                <input
+                  type="email"
+                  id="email"
+                  className={input}
+                  onChange={onChangEmail}
+                  value={email}
+                />
+                <span className={errorMessage}>{errorEmail}</span>
               </div>
               <div className={formInput}>
                 <label htmlFor="password" className={formLabel}>
                   Password
                 </label>
-                <input type="password" id="password" className={input} />
+                <input
+                  type="password"
+                  id="password"
+                  className={input}
+                  onChange={onChangePassword}
+                  value={password}
+                />
+                <span className={errorMessage}>{errorPassword}</span>
               </div>
               <div className={formInput}>
-                <label htmlFor="confirmPassword" className={formLabel}>
-                  Confirm Password
+                <label htmlFor="passwordConfirm" className={formLabel}>
+                  Password Confirm
                 </label>
-                <input type="password" id="confirmPassword" className={input} />
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  className={input}
+                  onChange={onChangePasswordConfirm}
+                  value={passwordConfirm}
+                />
+                <span className={errorMessage}>{errorPassword}</span>
               </div>
             </div>
-            <div className={checkBox}>
-              <input type="checkbox" className={checkBoxInput} />
-              <span className={checkBoxLabel}>Stay signed in for a month</span>
-            </div>
             <button type="submit" className={buttonPrimary}>
-              Continue
+              Create Account
             </button>
             <div className={socialList}>
               <button
@@ -216,7 +219,6 @@ const Register = ({
           </div>
         </div>
       </div>
-      <div className={customMenuContainer}></div>
     </div>
   )
 }

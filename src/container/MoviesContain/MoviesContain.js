@@ -9,7 +9,8 @@ import firebase from '../../firebase'
 const MoviesContain = () => {
   const [movies, setMovies] = useState([])
   useEffect(() => {
-    const abortControl = new AbortController()
+    let isComponentUnmounted = true
+    const abort = new AbortController()
     const unsubscribeAuth = firebase.auth().onAuthStateChanged((_user) => {
       firebase
         .firestore()
@@ -24,7 +25,8 @@ const MoviesContain = () => {
     })
     return () => {
       unsubscribeAuth()
-      abortControl.abort()
+      abort.abort()
+      isComponentUnmounted = false
     }
   }, [])
   return (

@@ -120,7 +120,7 @@ const loginForm = css`
   border-radius: 4px;
 `
 
-const NavBar = () => {
+const NavBar = ({ onLogout = () => {} }) => {
   return (
     <div className={materialNavbar}>
       <div className={navbarContainer}>
@@ -146,27 +146,27 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link to={routes[2].path} className={listItem}>
+            <Link to="/" className={listItem}>
               Series
             </Link>
           </li>
           <li>
-            <Link to={routes[3].path} className={listItem}>
+            <Link to="/" className={listItem}>
               People
             </Link>
           </li>
           <li>
-            <Link to={routes[4].path} className={listItem}>
+            <Link to="/" className={listItem}>
               News
             </Link>
           </li>
         </ul>
         <div className={navbarRight}>
           <div className={authRight}>
-            <Link to={routes[5].path} className={registerForm}>
+            <Link to={routes[1].path} className={registerForm}>
               Register
             </Link>
-            <Link to={routes[6].path} className={loginForm}>
+            <Link to={routes[2].path} className={loginForm}>
               Login
             </Link>
           </div>

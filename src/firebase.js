@@ -1,7 +1,7 @@
 import firebase from '@firebase/app'
 import '@firebase/firestore'
 import 'firebase/analytics'
-import 'firebase/auth'
+import '@firebase/auth'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAEUz1xVinJg-U5vFM2n5i2aujXmPc3rG4',
@@ -14,11 +14,10 @@ const firebaseConfig = {
 }
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
 firebase.analytics()
-
 const auth = firebase.auth()
 const db = firebase.firestore()
-const googleProvider = new firebase.auth.GoogleAuthProvider()
-const facebookProvider = new firebase.auth.FacebookAuthProvider()
-auth.setPersistence('local')
+// const googleProvider = new firebase.auth.GoogleAuthProvider()
+// const facebookProvider = new firebase.auth.FacebookAuthProvider()
+// auth.setPersistence('local')
 export default firebase
-export { db, googleProvider, facebookProvider, auth }
+export { db, auth }

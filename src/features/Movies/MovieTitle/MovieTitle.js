@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ROUTES from '../../../routers'
 import { css } from '@emotion/css'
 import './MovieTitle.css'
 import { useSelector } from 'react-redux'
@@ -25,7 +24,7 @@ const MovieTitle = ({ movies }) => {
         }`}
       >
         <Link
-          to={ROUTES[10].path}
+          to="/"
           className={`${title} ${
             theme === 'light' ? 'themeDark' : 'themeLight'
           }`}

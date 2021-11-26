@@ -1,7 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/css'
 import { Link } from 'react-router-dom'
-import ROUTES from '../../../routers'
 import { useSelector } from 'react-redux'
 
 const gridItem = css`
@@ -51,13 +50,13 @@ const MovieItem = ({ movies }) => {
           <React.Fragment key={movie.id}>
             <div className={gridItem}>
               <div className={gridContent}>
-                <Link to={ROUTES[7].path}>
+                <Link to={`titles/${movie.id}/${movie.name}`}>
                   <img src={movie.poster} alt={movie.name} className={image} />
                 </Link>
               </div>
               <div className={gridLabel}>
                 <Link
-                  to={ROUTES[7].path}
+                  to={`titles/${movie.id}/${movie.name}`}
                   className={`${title} ${
                     theme === 'light' ? 'themeDark' : 'themeLight'
                   }`}
